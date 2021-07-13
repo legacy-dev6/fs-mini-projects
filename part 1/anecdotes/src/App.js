@@ -7,6 +7,17 @@ const Button = (props) => {
   )
 }
 
+const Anecdote = (props) => {
+  const { title, func, votes, index } = props
+
+  return (
+    <div>
+      <h2>{title}</h2>
+      <p>{func[index]}</p>
+      <p>has {votes[index]} votes</p>
+    </div>
+  )
+}
 
 const App = () => {
   const anecdotes = [
@@ -45,7 +56,7 @@ const App = () => {
     }
     let max = 0
     let maxIndex = 0
-    console.log(copy.length);
+    // console.log(copy.length);
 
     for (let i = 0; i < copy.length; i++) {
       if (copy[i] > max) {
@@ -61,15 +72,19 @@ const App = () => {
     <div>
       {/* {console.log(points)} */}
       {/* {console.log('anecdote:',selected)} */}
-      <h2>Anecdote of the day</h2>
+      {/* <h2>Anecdote of the day</h2>
       <p>{anecdotes[selected]}</p>
-      <p>has {points[selected]} votes</p>
+    <p>has {points[selected]} votes</p> */}
+      <Anecdote title={'Anecdote of the day'} func={anecdotes} votes={points} index={selected} />
+
       <Button clickHandle={anecVote} text='vote' />
       <Button clickHandle={anecSelect} text='next anecdote' />
-      <h2>Anecdote with most votes</h2>
-      {console.log(indexOfMax)}
+
+      <Anecdote title={'Anecdote with most votes'} func={anecdotes} votes={points} index={indexOfMax()} />
+
+      {/* <h2>Anecdote with most votes</h2>
       <p>{anecdotes[indexOfMax()]}</p>
-      <p>has {points[indexOfMax()]} votes</p>
+      <p>has {points[indexOfMax()]} votes</p> */}
     </div>
   )
 }

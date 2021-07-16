@@ -16,10 +16,6 @@ const Statistics = (props) => {
 }
 
 const App = () => {
-  // const [Good, setGood] = useState(0)
-  // const [Neutral, setNeutral] = useState(0)
-  // const [Bad, setBad] = useState(0)
-  // const [All, setAll] = useState(0)
   const [click, setClick] = useState({ Good: 0, Neutral: 0, Bad: 0, All: 0 })
 
   const addGood = () => {
